@@ -12,13 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
         { id: 10, name: "Air fryer", price: 8199, img: "https://m.media-amazon.com/images/I/414ly0wsjYL._AC_UL480_QL65_.jpg", category: "home-appliances" },
         { id: 11, name: "Watch", price: 8000, img: "https://m.media-amazon.com/images/G/31/img21/Watches2024/Oct/Category/Premium/Tommy_M._SX564_QL85_.jpg", category: "fashion" }
     ];
-
     const cart = [];
     const cartItemsList = document.getElementById("cart-items");
     const cartCount = document.getElementById("cart-count");
     const cartContainer = document.getElementById("cart-container");
     const checkoutContainer = document.getElementById("checkout-container");
-
     function renderProducts() {
         const categories = ["fashion", "grocery", "electronics", "home-appliances", "beauty"];
         categories.forEach(category => {
@@ -37,13 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-
     window.addToCart = function (id) {
         const product = products.find(p => p.id === id);
         cart.push(product);
         updateCart();
     };
-
     function updateCart() {
         cartItemsList.innerHTML = "";
         cart.forEach((item, index) => {
@@ -54,16 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         cartCount.innerText = cart.length;
     }
-
     window.removeFromCart = function (index) {
         cart.splice(index, 1);
         updateCart();
     };
-
     window.toggleCart = function () {
         cartContainer.style.display = cartContainer.style.display === "block" ? "none" : "block";
     };
-
     window.checkout = function () {
         checkoutContainer.style.display = "block";
         document.getElementById("payment-form").onsubmit = function (event) {
@@ -74,14 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
             updateCart();
         };
     };
-
     window.closeCheckout = function () {
         checkoutContainer.style.display = "none";
     };
-
     window.scrollToCategory = function (category) {
         document.getElementById(category).scrollIntoView({ behavior: "smooth" });
     };
-
     renderProducts();
 });
