@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop</title>
+    <link rel="stylesheet" href="c.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-left">E-SHOP</div>
+        <div class="nav-menu">
+            <p onclick="scrollToCategory('fashion')">Fashion</p>
+            <p onclick="scrollToCategory('grocery')">Grocery</p>
+            <p onclick="scrollToCategory('electronics')">Electronics</p>
+            <p onclick="scrollToCategory('home-appliances')">Home Appliances</p>
+            <p onclick="scrollToCategory('beauty')">Beauty and Cosmetics</p>
+        </div>
+        <div class="nav-right">
+            <p class="cart-btn" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</p>
+        </div>
+    </nav>
+
+    <h2 class="section-title">Featured Products</h2>
+
+    <div id="fashion" class="category-section">
+        <h3>Fashion</h3>
+        <div class="product-grid" id="fashion-products"></div>
+    </div>
+
+    <div id="grocery" class="category-section">
+        <h3>Grocery</h3>
+        <div class="product-grid" id="grocery-products"></div>
+    </div>
+
+    <div id="electronics" class="category-section">
+        <h3>Electronics</h3>
+        <div class="product-grid" id="electronics-products"></div>
+    </div>
+
+    <div id="home-appliances" class="category-section">
+        <h3>Home Appliances</h3>
+        <div class="product-grid" id="home-appliances-products"></div>
+    </div>
+
+    <div id="beauty" class="category-section">
+        <h3>Beauty and Cosmetics</h3>
+        <div class="product-grid" id="beauty-products"></div>
+    </div>
+
+    <div id="cart-container" class="cart-container">
+        <h3>Your Cart</h3>
+        <ul id="cart-items"></ul>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+    <div id="checkout-container" class="checkout-container">
+        <h3>Payment Details</h3>
+        <form id="payment-form">
+            <label for="card-name">Cardholder Name:</label>
+            <input type="text" id="card-name" required>
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" maxlength="16" required>
+            <label for="expiry">Expiry Date:</label>
+            <input type="month" id="expiry" required>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" maxlength="3" required>
+            <button type="submit">Pay Now</button>
+        </form>
+        <button onclick="closeCheckout()">Close</button>
+    </div>
+
+    <footer class="footer">
+        <p><strong>About Us</strong></p>
+        <p>Welcome to E-Shop, your go-to online store for quality products at the best prices.</p>
+        <p>©️ 2025 E-Shop. All Rights Reserved.</p>
+    </footer>
+
+    <script src="homepage.js"></script>
+</body>
+</html>
