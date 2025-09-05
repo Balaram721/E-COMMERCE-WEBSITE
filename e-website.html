@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Shop</title>
+    <title>Shope Ease</title>
     <link rel="stylesheet" href="c.css">
 </head>
 <body>
+    <!-- NAVIGATION BAR -->
     <nav class="nav-bar">
-        <div class="nav-left">E-SHOP</div>
+        <div class="nav-left">Shope Ease</div>
         <div class="nav-menu">
             <p onclick="scrollToCategory('fashion')">Fashion</p>
             <p onclick="scrollToCategory('grocery')">Grocery</p>
             <p onclick="scrollToCategory('electronics')">Electronics</p>
             <p onclick="scrollToCategory('home-appliances')">Home Appliances</p>
-            <p onclick="scrollToCategory('beauty')">Beauty and Cosmetics</p>
+            <p onclick="scrollToCategory('beauty')">Beauty & Cosmetics</p>
         </div>
         <div class="nav-right">
             <p class="cart-btn" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</p>
         </div>
     </nav>
 
+    <!-- FEATURED PRODUCTS -->
     <h2 class="section-title">Featured Products</h2>
 
     <div id="fashion" class="category-section">
@@ -44,38 +46,69 @@
     </div>
 
     <div id="beauty" class="category-section">
-        <h3>Beauty and Cosmetics</h3>
+        <h3>Beauty & Cosmetics</h3>
         <div class="product-grid" id="beauty-products"></div>
     </div>
 
+    <!-- CART SIDEBAR -->
     <div id="cart-container" class="cart-container">
-        <h3>Your Cart</h3>
+        <div class="cart-header">
+            <h3>🛒 Your Cart</h3>
+            <button class="close-btn" onclick="toggleCart()">✖</button>
+        </div>
         <ul id="cart-items"></ul>
-        <button onclick="checkout()">Proceed to Checkout</button>
+        <div class="cart-footer">
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
     </div>
 
+    <!-- CHECKOUT MODAL -->
     <div id="checkout-container" class="checkout-container">
-        <h3>Payment Details</h3>
-        <form id="payment-form">
-            <label for="card-name">Cardholder Name:</label>
-            <input type="text" id="card-name" required>
-            <label for="card-number">Card Number:</label>
-            <input type="text" id="card-number" maxlength="16" required>
-            <label for="expiry">Expiry Date:</label>
-            <input type="month" id="expiry" required>
-            <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" maxlength="3" required>
-            <button type="submit">Pay Now</button>
-        </form>
-        <button onclick="closeCheckout()">Close</button>
+        <div class="checkout-box">
+            <div class="checkout-header">
+                <h3>💳 Payment Details</h3>
+                <button class="close-btn" onclick="closeCheckout()">✖</button>
+            </div>
+
+            <!-- ORDER SUMMARY -->
+            <div id="order-summary">
+                <h4>Order Summary</h4>
+                <ul id="checkout-items"></ul>
+                <p class="checkout-total"><strong>Total: &#8377;<span id="checkout-total">0</span></strong></p>
+            </div>
+
+            <!-- PAYMENT FORM -->
+            <form id="payment-form">
+                <label for="card-name">Cardholder Name</label>
+                <input type="text" id="card-name" required>
+
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" maxlength="16" required pattern="\d{16}" placeholder="1234 5678 9012 3456">
+
+                <div class="payment-row">
+                    <div>
+                        <label for="expiry">Expiry Date</label>
+                        <input type="month" id="expiry" required>
+                    </div>
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" maxlength="3" required pattern="\d{3}" placeholder="123">
+                    </div>
+                </div>
+
+                <button type="submit" class="pay-btn">Pay Now</button>
+            </form>
+        </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <p><strong>About Us</strong></p>
-        <p>Welcome to E-Shop, your go-to online store for quality products at the best prices.</p>
-        <p>©️ 2025 E-Shop. All Rights Reserved.</p>
+        <p>Welcome to Shope Ease, your go-to online store for quality products at the best prices.</p>
+        <p>©️ 2025 Shope Ease. All Rights Reserved.</p>
     </footer>
 
+    <!-- SCRIPT -->
     <script src="homepage.js"></script>
 </body>
 </html>
